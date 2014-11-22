@@ -28,6 +28,9 @@ public:
     // Definindo o objeto para salvar o endereço onde o arquivo sera salvo.
     QString filesave;
 
+    // Para Obter as informações do arquivo
+    QFileInfo info;
+
 private slots:
     void on_Search_clicked();
 

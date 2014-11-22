@@ -24,6 +24,17 @@ void View::on_Search_clicked()
                 "All Files (*.*);;Huffman(*.huff);;Text File (*.txt)"
                 );
     ui->lineEdit_Search->setText(fileAddress);
+
+    //Obtem as informações do arquivo
+    info.setFile(fileAddress);
+
+
+    if(info.suffix()!= ".huff"){
+
+        // Desabilita o botão de compresão
+        ui->Decompress-> setEnabled(false);
+    }
+
 }
 
 // Função para salvar o arquivo.
@@ -51,5 +62,11 @@ void View::on_Decompress_clicked()
 // compresão do arquivo
 void View::on_Compress_clicked()
 {
+
     conexao_compress.encodes(fileAddress,filesave);
 }
+
+
+
+
+

@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>View</class>
  <widget class="QMainWindow" name="View">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -117,6 +120,9 @@
     </item>
     <item row="4" column="2">
      <widget class="QPushButton" name="Decompress">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="text">
        <string>Decompress</string>
       </property>
@@ -143,7 +149,7 @@
      <x>0</x>
      <y>0</y>
      <width>406</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
