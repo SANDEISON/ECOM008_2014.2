@@ -2,6 +2,8 @@
 #define VIEW_H
 
 #include <QMainWindow>
+#include <compress.h>
+#include <decompress.h>
 
 namespace Ui {
 class View;
@@ -14,6 +16,10 @@ class View : public QMainWindow
 public:
     explicit View(QWidget *parent = 0);
     ~View();
+
+
+    Compress conexao_compress; // Conexão, envia os endereços do arquivo abrir e do salvar
+    Decompress conexao_decompress; // conexao, envia os endereços do arquivo abrir e do salvar
 
 
     // Definindo o objeto para salvar o endereço do arquivo

@@ -51,5 +51,5 @@ void View::on_Decompress_clicked()
 // compresão do arquivo
 void View::on_Compress_clicked()
 {
-
+    conexao_compress.encodes(fileAddress,filesave);
 }
