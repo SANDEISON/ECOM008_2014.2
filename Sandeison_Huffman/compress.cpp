@@ -2,7 +2,7 @@
 #include <QDebug>
 #include "QMessageBox"
 
-Compress::Compress()
+Compress::Compress( )
 {
 }
 
@@ -13,23 +13,17 @@ void Compress::encodes(QString nameImput,QString nameOutput ) {
 
      // Verificar se o arquivo existi
      if (informationOpen.exists()){
+
          // Nome do Arquivo
              nameFile = informationOpen.fileName();
         // Tamanho do arquivo
-            tamFile = informationOpen.size();
+            tamNameFile = nameFile.size();
 
+        //Leitura do arquivo
+        readInput(nameImput);
+        //Gravação do Arquivo
+        writeFile(nameOutput);
 
-
-
-        qDebug() << nameFile << endl;
-        qDebug() << tamFile << endl;
-        qDebug() << nameImput << endl;
-        qDebug() << nameOutput << endl;
-
-        // Abrindo o arquivo
-        file.setFileName(nameImput);
-
-        // QIODevice - Input and output device; ReadOnly - read only -
 
 
     }else{
@@ -39,10 +33,9 @@ void Compress::encodes(QString nameImput,QString nameOutput ) {
     }
 
 
-
 }
 
-
+//Exibe as mensagens
 void Compress::showDoneMessage(const char * msg)
 {
     QMessageBox msgBox;
@@ -53,3 +46,27 @@ void Compress::showDoneMessage(const char * msg)
 }
 
 
+void Compress::readInput(QString nameImput)
+{
+
+    file.setFileName(nameImput);
+    if(file.open (QIODevice::ReadOnly))
+    {
+        qDebug() << "File was read" << endl << endl;
+        newFile = file.readAll();
+    }
+
+    file.close();
+}
+
+void Compress::writeFile(QString nameOutput)
+{
+    file.setFileName(nameOutput);
+    if (file.open (QIODevice::WriteOnly)){
+        qDebug() << "File was written" << endl << endl;
+        file.write(newFile);
+    }
+
+    file.flush();
+    file.close(); // Closes the file
+}

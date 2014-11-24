@@ -41,6 +41,7 @@ void View::on_Search_clicked()
 void View::on_Save_clicked()
 {
     filesave = QFileDialog::getSaveFileName();
+    filesave+= ".huff";
     ui->lineEdit_Save->setText(filesave);
 }
 
