@@ -3,7 +3,8 @@
 
 #include<QString>
 #include <QFileInfo>
-
+#include <QFile>
+#include "node.h"
 
 
 class Compress
@@ -23,6 +24,8 @@ public:
 
     //Metodo para Mensagens.
     void showDoneMessage(const char * msg);
+
+    QFile file;
 
 };
 

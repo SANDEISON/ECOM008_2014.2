@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         view.cpp \
     compress.cpp \
-    decompress.cpp
+    decompress.cpp \
+    node.cpp
 
 HEADERS  += view.h \
     compress.h \
-    decompress.h
+    decompress.h \
+    node.h
 
 FORMS    += view.ui

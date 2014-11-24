@@ -13,19 +13,23 @@ void Compress::encodes(QString nameImput,QString nameOutput ) {
 
      // Verificar se o arquivo existi
      if (informationOpen.exists()){
-
-        // Nome do Arquivo
-        nameFile = informationOpen.fileName();
+         // Nome do Arquivo
+             nameFile = informationOpen.fileName();
         // Tamanho do arquivo
-        tamFile = informationOpen.size();
+            tamFile = informationOpen.size();
+
+
+
 
         qDebug() << nameFile << endl;
         qDebug() << tamFile << endl;
         qDebug() << nameImput << endl;
         qDebug() << nameOutput << endl;
 
+        // Abrindo o arquivo
+        file.setFileName(nameImput);
 
-
+        // QIODevice - Input and output device; ReadOnly - read only -
 
 
     }else{
@@ -47,4 +51,5 @@ void Compress::showDoneMessage(const char * msg)
     msgBox.setIcon(QMessageBox::Information);
     msgBox.exec();
 }
+
 
