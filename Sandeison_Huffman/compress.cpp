@@ -21,6 +21,12 @@ void Compress::encodes(QString nameImput,QString nameOutput ) {
 
         //Leitura do arquivo
         readInput(nameImput);
+
+
+
+
+
+
         //Gravação do Arquivo
         writeFile(nameOutput);
 
@@ -45,20 +51,20 @@ void Compress::showDoneMessage(const char * msg)
     msgBox.exec();
 }
 
-
+// Abre o arquivo e faz uma copia para o newFile
 void Compress::readInput(QString nameImput)
 {
 
     file.setFileName(nameImput);
     if(file.open (QIODevice::ReadOnly))
     {
-        qDebug() << "File was read" << endl << endl;
         newFile = file.readAll();
     }
 
     file.close();
 }
 
+// Cria o novo arquivo e grava
 void Compress::writeFile(QString nameOutput)
 {
     file.setFileName(nameOutput);
@@ -69,4 +75,17 @@ void Compress::writeFile(QString nameOutput)
 
     file.flush();
     file.close(); // Closes the file
+}
+
+
+void Compress::frequencia(){
+
+    int frequency[256];
+
+    for(int i = 0; i < 256; i++){
+        frequency[i] = newFile.count(i);
+        qDebug () << frequency[i];
+     }
+
+
 }

@@ -15,7 +15,6 @@ public:
      //Metodo que recebe os endereços de entrada e saida
      void encodes(QString nameInput, QString nameOutput);
 
-
      //Metodo para çeitura o arquivo
 
      void readInput(QString nameInput);
@@ -23,9 +22,10 @@ public:
      //Metodo para escrita do arquivo
      void writeFile(QString nameOutput);
 
+     //Metodo para Mensagens.
+     void showDoneMessage(const char * msg);
 
-
-
+    void frequencia();
 
     //Objeto para buscar informação do arquivo
     QFileInfo informationOpen;
@@ -34,15 +34,14 @@ public:
     QString nameFile; // Nome do Arquivo
     int tamNameFile; // tamanho do  nome do arquivo
 
-    //Metodo para Mensagens.
-    void showDoneMessage(const char * msg);
 
     // Objeto para manipular os dados
     QFile file;
+
     // Objeto para criar o arquivo novo
     QByteArray newFile;
 
-
+    QList<Node> lista;
 
 
 
