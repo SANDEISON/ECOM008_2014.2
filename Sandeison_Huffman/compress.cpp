@@ -22,7 +22,7 @@ void Compress::encodes(QString nameImput,QString nameOutput ) {
         //Leitura do arquivo
         readInput(nameImput);
 
-
+        frequencia();
 
 
 
@@ -69,7 +69,6 @@ void Compress::writeFile(QString nameOutput)
 {
     file.setFileName(nameOutput);
     if (file.open (QIODevice::WriteOnly)){
-        qDebug() << "File was written" << endl << endl;
         file.write(newFile);
     }
 
@@ -77,15 +76,66 @@ void Compress::writeFile(QString nameOutput)
     file.close(); // Closes the file
 }
 
-
+// Verifica a frequencia do arquivo
 void Compress::frequencia(){
 
     int frequency[256];
 
     for(int i = 0; i < 256; i++){
         frequency[i] = newFile.count(i);
-        qDebug () << frequency[i];
      }
+    recebelista(frequency);
+}
 
+
+
+
+// Passa a frequencia para a lista
+void Compress::recebelista(int  vetor[]){
+
+    for(int i = 0; i < 256; ++i)
+    {
+        if(vetor[i])
+        {
+            Node * tmp = new Node;
+            tmp->frequency = vetor[i];
+            tmp->character.append(i);
+
+            //qDebug () << vetor[i] ;
+            //qDebug () <<  tmp->character ;
+            lista << * tmp;
+        }
+    }
+
+    sortList();
 
 }
+
+// Ordena a lista
+void Compress :: sortList(){
+
+    bool swapped = true;
+
+    if(lista.size() == 1){
+        return;
+
+    }
+
+    while(swapped)
+    {
+        swapped = false;
+        for(int i = 1; i < lista.size(); ++i)
+            if(lista[i].frequency < lista[i - 1].frequency)
+            {
+                lista.swap(i, i-1);
+                swapped = true;
+            }
+
+    }
+
+    //for(int i=0; i<lista.size(); i++){
+      // qDebug () <<  lista[i].frequency;
+      // qDebug () <<  lista[i].character;
+    //}
+}
+
