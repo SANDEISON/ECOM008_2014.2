@@ -95,7 +95,7 @@ void Compress::frequencia(){
      }
 
     recebelista(frequency);
-    cod(frequency);
+
 }
 
 
@@ -168,12 +168,7 @@ void Compress :: sortList(){
 }
 
 */
-void Compress:: cod(int vetor[])
-{
 
-
-
-}
 
 
 

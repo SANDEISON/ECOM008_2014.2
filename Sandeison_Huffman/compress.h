@@ -36,8 +36,6 @@ public:
      // Ordena a Lista
      void sortList();
 
-     // Cria a Arvore
-     void cod (int vetor[]);
 
 
 
