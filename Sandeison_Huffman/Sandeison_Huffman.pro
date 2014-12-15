@@ -16,11 +16,14 @@ SOURCES += main.cpp\
         view.cpp \
     compress.cpp \
     decompress.cpp \
-    node.cpp
+    node.cpp \
+    avltree.cpp
 
 HEADERS  += view.h \
     compress.h \
     decompress.h \
-    node.h
+    node.h \
+    treenode.h \
+    avltree.h
 
 FORMS    += view.ui

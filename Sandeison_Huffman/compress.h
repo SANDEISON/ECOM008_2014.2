@@ -4,7 +4,9 @@
 #include<QString>
 #include <QFileInfo>
 #include <QFile>
-#include "node.h"
+#include <node.h>
+
+#include <avltree.h>
 
 
 class Compress
@@ -27,11 +29,17 @@ public:
      // Metodo para a frequencia do arquivo
      void frequencia();
 
+
      // Metodo para ordenar o arquivo
      void recebelista(int vetor[]);
 
      // Ordena a Lista
      void sortList();
+
+     // Cria a Arvore
+     void cod (int vetor[]);
+
+
 
 
      //Objeto para buscar informação do arquivo
@@ -45,11 +53,19 @@ public:
      // Objeto para manipular os dados
      QFile file;
 
+     //Manipulação dos bitis para gravar no arquivo
+     QBitArray escrevearquivo;
+
      // Objeto para criar o arquivo novo
      QByteArray newFile;
 
      // Objeto para criar a lista
      QList<Node> lista;
+
+     AvlTree inserearvore;
+
+
+
 
 };
 

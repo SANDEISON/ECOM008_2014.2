@@ -15,7 +15,7 @@ public:
 
     int frequency;
     QByteArray character;
-    QByteArray newBits;
+    QBitArray newBits;
     Node* left;
     Node* right;
 

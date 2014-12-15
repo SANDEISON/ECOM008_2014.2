@@ -29,7 +29,7 @@ void View::on_Search_clicked()
     info.setFile(fileAddress);
 
 
-    if(info.suffix()!= ".huff"){
+    if(info.suffix()!= "huff"){
 
         // Desabilita o botão de compresão
         ui->Decompress-> setEnabled(false);
@@ -57,7 +57,7 @@ void View::on_Cancel_clicked()
 // descompresão do arquivo
 void View::on_Decompress_clicked()
 {
-
+    conexao_decompress.encodes(fileAddress,filesave);
 }
 
 // compresão do arquivo
